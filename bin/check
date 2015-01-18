@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'pg'
+require 'optparse'
+require 'linodians'
+
+DATABASE_URL = ENV['DATABASE_URL']
+

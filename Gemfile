@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'linodians', '~> 0.0.3'
+gem 'pg', '~> 0.18.1'
+
 group :development do
   gem 'rubocop', '~> 0.28.0'
   gem 'rake', '~> 10.4.0'
