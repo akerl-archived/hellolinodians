@@ -7,7 +7,7 @@ hellolinodians
 [![Build Status](https://img.shields.io/travis/akerl/hellolinodians.svg)](https://travis-ci.org/akerl/hellolinodians)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
 
-Twitter bot for announcing new Linodians
+Twitter bot for announcing new Linodians (https://twitter.com/hello_linodians)
 
 ## Usage
 
