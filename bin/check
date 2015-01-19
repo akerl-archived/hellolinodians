@@ -1,8 +1,46 @@
 #!/usr/bin/env ruby
 
-require 'pg'
-require 'optparse'
 require 'linodians'
+require 'optparse'
+require 'json'
 
-DATABASE_URL = ENV['DATABASE_URL']
+$LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
+require 'hellolinodians/database'
+require 'hellolinodians/diff'
+require 'hellolinodians/alert'
 
+DB = Database.connect
+QUERIES = {
+  insert: 'INSERT INTO hellolinodians (data) VALUES ($1)',
+  select: 'SELECT data FROM hellolinodians ORDER BY id DESC LIMIT 1'
+}
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: ./bin/check [opts]'
+  opts.on('-u', '--update', 'Update the DB with new data') do
+    options[:update] = true
+  end
+  opts.on('-d', '--diff', 'Compare against last data') do
+    options[:diff] = true
+  end
+  opts.on('-a', '--alert', 'Alert on changes') do
+    options[:alert] = true
+  end
+end.parse!
+
+current = Linodians.new
+
+if options[:diff]
+  old_data = JSON.parse DB.exec(QUERIES[:select]).values.first.first
+  fail unless old_data.size > 1
+  last = Linodians.new(old_data)
+  diff = HelloLinodians::Diff.new(current, last)
+  if options[:alert]
+    diff.changes.each do |message|
+      HelloLinodians::Alert.new(message).run!
+    end
+  end
+end
+
+DB.exec_params(QUERIES[:insert], [current.to_json]) if options[:update]

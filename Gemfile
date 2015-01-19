@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'linodians', '~> 0.0.3'
 gem 'pg', '~> 0.18.1'
+gem 'indefinite_article', '~> 0.2.0'
+gem 'twitter', '~> 5.13.0'
 
 group :development do
   gem 'rubocop', '~> 0.28.0'
