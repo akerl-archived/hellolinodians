@@ -3,6 +3,7 @@
 require 'linodians'
 require 'optparse'
 require 'json'
+require 'open-uri'
 
 $LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
 require 'hellolinodians/database'
@@ -27,6 +28,12 @@ OptionParser.new do |opts|
   opts.on('-a', '--alert', 'Alert on changes') do
     options[:alert] = true
   end
+  opts.on('-c', '--checkin', 'Check in with DeadManSnitch') do
+    options[:checkin] = true
+  end
+  opts.on('-p', '--prod', 'Enable all production settings') do
+    options = Hash.new(true)
+  end
 end.parse!
 
 current = Linodians.new
@@ -44,3 +51,8 @@ if options[:diff]
 end
 
 DB.exec_params(QUERIES[:insert], [current.to_json]) if options[:update]
+
+if options[:checkin]
+  DMS_URL = ENV['DEADMANSSNITCH_URL'] || `heroku config:get DEADMANSSNITCH_URL`
+  open(DMS_URL.strip)
+end
