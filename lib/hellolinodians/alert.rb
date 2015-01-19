@@ -9,7 +9,7 @@ module HelloLinodians
     end
 
     def run!
-      p @message
+      client.update @message
     end
 
     private
