@@ -1,3 +1,4 @@
+ruby '2.1.5'
 source 'https://rubygems.org'
 
 gem 'linodians', '~> 0.0.3'
