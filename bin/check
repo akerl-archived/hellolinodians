@@ -4,6 +4,7 @@ require 'linodians'
 require 'optparse'
 require 'json'
 require 'open-uri'
+require 'uri'
 
 $LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
 require 'hellolinodians/database'
@@ -54,5 +55,6 @@ DB.exec_params(QUERIES[:insert], [current.to_json]) if options[:update]
 
 if options[:checkin]
   DMS_URL = ENV['DEADMANSSNITCH_URL'] || `heroku config:get DEADMANSSNITCH_URL`
-  open(DMS_URL.strip)
+  message = "found+#{current.size}+people"
+  open("#{DMS_URL.strip}?m=#{message}")
 end
