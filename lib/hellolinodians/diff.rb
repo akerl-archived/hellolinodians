@@ -9,6 +9,7 @@ module HelloLinodians
     addition: [
       'Congrats to %{fullname} on their new job as %{a_title} at @linode, CC @%{twitter}',
       'Congrats to %{fullname} on their new job as %{a_title} at @linode',
+      'Congrats to %{fullname} on their new job at @linode, CC @%{twitter}',
       'Congrats to %{fullname} on their new job at @linode'
     ],
     removal: [
