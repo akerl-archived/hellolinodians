@@ -1,10 +1,10 @@
 ruby '2.1.5'
 source 'https://rubygems.org'
 
-gem 'linodians', '~> 0.1.0'
+gem 'linodians', '~> 1.0.0'
 gem 'pg', '~> 0.18.1'
 gem 'indefinite_article', '~> 0.2.0'
-gem 'twitter', '~> 5.13.0'
+gem 'twitter', '~> 5.14.0'
 
 group :development do
   gem 'rubocop', '~> 0.29.0'
