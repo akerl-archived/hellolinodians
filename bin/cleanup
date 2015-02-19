@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require 'linodians'
+require 'optparse'
+require 'json'
+require 'open-uri'
+require 'uri'
+
+$LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
+require 'hellolinodians/database'
+
+ROW_CAP = 4_000
+
+DB = Database.connect
+# rubocop:disable Metrics/LineLength
+QUERIES = {
+  count: 'SELECT COUNT(*) FROM hellolinodians',
+  delete: 'DELETE FROM hellolinodians WHERE id IN (SELECT id FROM hellolinodians ORDER BY id LIMIT $1)'
+}
+# rubocop:enable Metrics/LineLength
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: ./bin/cleanup [opts]'
+  opts.on('-d', '--delete', 'Remove old rows from the DB') do
+    options[:delete] = true
+  end
+  opts.on('-p', '--prod', 'Enable all production settings') do
+    options = Hash.new(true)
+  end
+end.parse!
+
+count = DB.exec_params(QUERIES[:count]).values.first.first.to_i
+puts "Found #{count} rows"
+
+if options[:delete] && count > ROW_CAP
+  puts "Capping rows at #{ROW_CAP}"
+  purge_count = count - ROW_CAP
+  DB.exec_params(QUERIES[:delete], [purge_count])
+end
