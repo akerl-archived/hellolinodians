@@ -9,12 +9,11 @@ require 'hellolinodians/database'
 ROW_CAP = 8_000
 
 DB = Database.connect
-# rubocop:disable Metrics/LineLength
 QUERIES = {
   count: 'SELECT COUNT(*) FROM hellolinodians',
-  delete: 'DELETE FROM hellolinodians WHERE id IN (SELECT id FROM hellolinodians ORDER BY id LIMIT $1)'
+  delete: 'DELETE FROM hellolinodians WHERE id IN ' \
+    '(SELECT id FROM hellolinodians ORDER BY id LIMIT $1)'
 }
-# rubocop:enable Metrics/LineLength
 
 options = {}
 OptionParser.new do |opts|
