@@ -2,14 +2,11 @@
 
 require 'linodians'
 require 'optparse'
-require 'json'
-require 'open-uri'
-require 'uri'
 
 $LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
 require 'hellolinodians/database'
 
-ROW_CAP = 4_000
+ROW_CAP = 8_000
 
 DB = Database.connect
 # rubocop:disable Metrics/LineLength
