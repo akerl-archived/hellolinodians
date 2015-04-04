@@ -9,7 +9,7 @@ gem 'twitter', '~> 5.14.0'
 group :development do
   gem 'rubocop', '~> 0.29.0'
   gem 'rake', '~> 10.4.0'
-  gem 'coveralls', '~> 0.7.2'
+  gem 'coveralls', '~> 0.8.0'
   gem 'rspec', '~> 3.2.0'
   gem 'fuubar', '~> 2.0.0'
 end
