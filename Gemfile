@@ -10,6 +10,6 @@ group :development do
   gem 'rubocop', '~> 0.32.0'
   gem 'rake', '~> 10.4.0'
   gem 'coveralls', '~> 0.8.0'
-  gem 'rspec', '~> 3.2.0'
+  gem 'rspec', '~> 3.3.0'
   gem 'fuubar', '~> 2.0.0'
 end
