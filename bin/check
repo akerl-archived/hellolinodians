@@ -7,15 +7,9 @@ require 'open-uri'
 require 'uri'
 
 $LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
-require 'hellolinodians/database'
 require 'hellolinodians/diff'
 require 'hellolinodians/alert'
-
-DB = Database.connect
-QUERIES = {
-  insert: 'INSERT INTO hellolinodians (data) VALUES ($1)',
-  select: 'SELECT data FROM hellolinodians ORDER BY id DESC LIMIT 1'
-}
+require 'hellolinodians/cache'
 
 options = {}
 OptionParser.new do |opts|
@@ -39,10 +33,11 @@ end.parse!
 
 current = Linodians.new
 
+Cache.write(current) unless File.exist? CACHE_FILE
+
 if options[:diff]
-  old_data = JSON.parse DB.exec(QUERIES[:select]).values.first.first
+  old_data = Cache.read
   fail unless old_data.size > 1
-  last = Linodians.new(old_data)
   diff = HelloLinodians::Diff.new(current, last)
   if options[:alert]
     diff.changes.each do |message|
@@ -51,7 +46,7 @@ if options[:diff]
   end
 end
 
-DB.exec_params(QUERIES[:insert], [current.to_json]) if options[:update]
+Cache.write(current) if options[:update]
 
 if options[:checkin]
   DMS_URL = ENV['DEADMANSSNITCH_URL'] || `heroku config:get DEADMANSSNITCH_URL`
