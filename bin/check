@@ -34,11 +34,11 @@ end.parse!
 current = Linodians.new
 fail('Invalid result') unless current.lookup('caker')
 
-Cache.write(current) unless File.exist? CACHE_FILE
+Cache.write(current) unless Cache.exists?
 
 if options[:diff]
-  old_data = Cache.read
-  fail unless old_data.size > 1
+  last = Cache.read
+  fail unless last.size > 1
   diff = HelloLinodians::Diff.new(current, last)
   if options[:alert]
     diff.changes.each do |message|
