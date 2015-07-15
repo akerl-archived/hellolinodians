@@ -24,8 +24,7 @@ module HelloLinodians
     end
 
     def env(name)
-      name = "TWITTER_#{name}"
-      ENV[name] || `heroku config:get #{name}`.strip
+      ENV["TWITTER_#{name}"]
     end
   end
 end
