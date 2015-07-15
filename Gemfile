@@ -2,7 +2,6 @@ ruby '2.2.2'
 source 'https://rubygems.org'
 
 gem 'linodians', '~> 1.0.0'
-gem 'pg', '~> 0.18.1'
 gem 'indefinite_article', '~> 0.2.0'
 gem 'twitter', '~> 5.14.0'
 
