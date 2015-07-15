@@ -32,6 +32,7 @@ OptionParser.new do |opts|
 end.parse!
 
 current = Linodians.new
+fail('Invalid result') unless current.lookup('caker')
 
 Cache.write(current) unless File.exist? CACHE_FILE
 
