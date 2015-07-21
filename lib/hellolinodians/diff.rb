@@ -44,7 +44,7 @@ module HelloLinodians
     end
 
     def removals
-      return if SKIP_REMOVALS
+      return [] if SKIP_REMOVALS
       (last_users - current_users).map do |user|
         generate_message MESSAGES[:removal], @last.lookup(user)
       end
