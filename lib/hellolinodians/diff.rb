@@ -4,6 +4,8 @@ require 'indefinite_article'
 ##
 # Diff constructs and message creation info
 module HelloLinodians
+  SKIP_REMOVALS = true
+
   # rubocop:disable Metrics/LineLength
   MESSAGES = {
     addition: [
@@ -42,6 +44,7 @@ module HelloLinodians
     end
 
     def removals
+      return if SKIP_REMOVALS
       (last_users - current_users).map do |user|
         generate_message MESSAGES[:removal], @last.lookup(user)
       end
