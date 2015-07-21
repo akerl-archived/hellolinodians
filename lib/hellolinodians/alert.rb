@@ -4,12 +4,17 @@ module HelloLinodians
   ##
   # Send alerts for messages
   class Alert
-    def initialize(message)
+    def initialize(type, message)
+      @type = type
       @message = message
     end
 
     def run!
-      client.update @message
+      if @type == :removals && dm_removals?
+        client.create_direct_message(dm_target, @message)
+      else
+        client.update @message
+      end
     end
 
     private
@@ -25,6 +30,14 @@ module HelloLinodians
 
     def env(name)
       ENV["TWITTER_#{name}"]
+    end
+
+    def dm_removals?
+      @dm_removals ||= env('DM_REMOVALS')
+    end
+
+    def dm_target
+      @dm_target ||= env('DM_TARGET') || fail('No DM target provided')
     end
   end
 end

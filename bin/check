@@ -41,8 +41,8 @@ if options[:diff]
   fail unless last.size > 1
   diff = HelloLinodians::Diff.new(current, last)
   if options[:alert]
-    diff.changes.each do |message|
-      HelloLinodians::Alert.new(message).run!
+    diff.changes.each do |type, message|
+      HelloLinodians::Alert.new(type, message).run!
     end
   end
 end
