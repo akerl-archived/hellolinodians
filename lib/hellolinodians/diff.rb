@@ -32,9 +32,9 @@ module HelloLinodians
     end
 
     def changes
-      [:additions, :removals, :new_titles].map do |type|
+      [:additions, :removals, :new_titles].flat_map do |type|
         send(type).map { |x| [type, x] }
-      end.flatten(1)
+      end
     end
 
     def additions
