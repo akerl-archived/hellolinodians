@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'linodians', '~> 1.0.0'
 gem 'indefinite_article', '~> 0.2.0'
-gem 'twitter', '~> 5.14.0'
+gem 'twitter', '~> 5.15.0'
 
 group :development do
   gem 'rubocop', '~> 0.34.0'
