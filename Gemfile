@@ -6,7 +6,7 @@ gem 'indefinite_article', '~> 0.2.0'
 gem 'twitter', '~> 5.15.0'
 
 group :development do
-  gem 'rubocop', '~> 0.35.0'
+  gem 'rubocop', '~> 0.36.0'
   gem 'rake', '~> 10.5.0'
   gem 'codecov', '~> 0.1.1'
   gem 'rspec', '~> 3.4.0'
