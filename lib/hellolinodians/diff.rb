@@ -20,7 +20,7 @@ module HelloLinodians
       'Congrats @linode! %{fullname} evolved into %{a_title}! CC @%{twitter}',
       'Congrats @linode! %{fullname} evolved into %{a_title}!'
     ]
-  }
+  }.freeze
   # rubocop:enable Metrics/LineLength
 
   ##
