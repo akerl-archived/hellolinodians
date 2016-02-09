@@ -37,7 +37,7 @@ module HelloLinodians
     end
 
     def dm_target
-      @dm_target ||= env('DM_TARGET') || fail('No DM target provided')
+      @dm_target ||= env('DM_TARGET') || raise('No DM target provided')
     end
   end
 end

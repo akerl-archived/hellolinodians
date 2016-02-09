@@ -32,13 +32,13 @@ OptionParser.new do |opts|
 end.parse!
 
 current = Linodians.new
-fail('Invalid result') unless current.lookup('caker')
+raise('Invalid result') unless current.lookup('caker')
 
 Cache.write(current) unless Cache.exists?
 
 if options[:diff]
   last = Cache.read
-  fail unless last.size > 1
+  raise unless last.size > 1
   diff = HelloLinodians::Diff.new(current, last)
   if options[:alert]
     diff.changes.each do |type, message|
@@ -51,7 +51,7 @@ Cache.write(current) if options[:update]
 
 if options[:checkin]
   DMS_URL = ENV['DEADMANSSNITCH_URL']
-  fail('No DMS URL provided') unless DMS_URL
+  raise('No DMS URL provided') unless DMS_URL
   message = "found+#{current.size}+people"
   open("#{DMS_URL.strip}?m=#{message}")
 end

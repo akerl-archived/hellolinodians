@@ -5,7 +5,7 @@ module Cache
 
   class << self
     def read
-      fail('No cache file exists') unless exists?
+      raise('No cache file exists') unless exists?
       Linodians.new(JSON.parse(File.read(CACHE_FILE)))
     end
 
