@@ -1,7 +1,7 @@
 ruby '2.3.1'
 source 'https://rubygems.org'
 
-gem 'linodians', '~> 1.0.1'
+gem 'linodians', '~> 1.1.0'
 gem 'indefinite_article', '~> 0.2.0'
 gem 'twitter', '~> 5.16.0'
 
