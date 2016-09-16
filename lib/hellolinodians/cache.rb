@@ -1,20 +1,26 @@
+require 'json'
+require 'redis'
+
 ##
 # Helper module for manipulating the cache
 module Cache
-  CACHE_FILE = ENV['LINODIANS_CACHE_FILE'] || '/tmp/linodians'
-
   class << self
     def read
-      raise('No cache file exists') unless exists?
-      Linodians.new(JSON.parse(File.read(CACHE_FILE)))
+      Linodians.new(JSON.parse(db['data']))
     end
 
     def write(value)
-      File.open(CACHE_FILE, 'w') { |fh| fh << value.to_json }
+      db['data'] = value.to_json
     end
 
     def exists?
-      File.exist? CACHE_FILE
+      !db['data'].nil?
+    end
+
+    private
+
+    def db
+      @db ||= Redis.new
     end
   end
 end
