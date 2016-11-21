@@ -10,7 +10,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ast (2.3.0)
     buftok (0.2.0)
-    codecov (0.1.8)
+    codecov (0.1.9)
       json
       simplecov
       url
@@ -50,7 +50,7 @@ GEM
     naught (1.1.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    parser (2.3.1.4)
+    parser (2.3.2.0)
       ast (~> 2.2)
     powerpack (0.1.1)
     public_suffix (2.0.4)
@@ -118,7 +118,7 @@ DEPENDENCIES
   twitter (~> 5.16.0)
 
 RUBY VERSION
-   ruby 2.3.2p217
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.13.6
