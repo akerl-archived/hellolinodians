@@ -7,7 +7,7 @@ gem 'twitter', '~> 6.0.0'
 gem 'redis', '~> 3.3.0'
 
 group :development do
-  gem 'rubocop', '~> 0.46.0'
+  gem 'rubocop', '~> 0.47.0'
   gem 'rake', '~> 12.0.0'
   gem 'codecov', '~> 0.1.1'
   gem 'rspec', '~> 3.5.0'
