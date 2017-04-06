@@ -32,7 +32,7 @@ module HelloLinodians
     end
 
     def changes
-      %i(additions, removals, new_titles).flat_map do |type|
+      %i[additions removals new_titles].flat_map do |type|
         send(type).map { |x| [type, x] }
       end
     end
