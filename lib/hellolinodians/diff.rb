@@ -7,18 +7,18 @@ module HelloLinodians
   # rubocop:disable Metrics/LineLength
   MESSAGES = {
     addition: [
-      'Congrats to %{fullname} on their new job as %{a_title} at @linode, CC @%{twitter}',
-      'Congrats to %{fullname} on their new job as %{a_title} at @linode',
-      'Congrats to %{fullname} on their new job at @linode, CC @%{twitter}',
-      'Congrats to %{fullname} on their new job at @linode'
+      'Congrats to %<fullname>s on their new job as %<a_title>s at @linode, CC @%<twitter>s',
+      'Congrats to %<fullname>s on their new job as %<a_title>s at @linode',
+      'Congrats to %<fullname>s on their new job at @linode, CC @%<twitter>s',
+      'Congrats to %<fullname>s on their new job at @linode'
     ],
     removal: [
-      'Best of luck to %{fullname} in their future endeavors! CC @%{twitter}',
-      'Best of luck to %{fullname} in their future endeavors!'
+      'Best of luck to %<fullname>s in their future endeavors! CC @%<twitter>s',
+      'Best of luck to %<fullname>s in their future endeavors!'
     ],
     new_title: [
-      'Congrats @linode! %{fullname} evolved into %{a_title}! CC @%{twitter}',
-      'Congrats @linode! %{fullname} evolved into %{a_title}!'
+      'Congrats @linode! %<fullname>s evolved into %<a_title>s! CC @%<twitter>s',
+      'Congrats @linode! %<fullname>s evolved into %<a_title>s!'
     ]
   }.freeze
   # rubocop:enable Metrics/LineLength
