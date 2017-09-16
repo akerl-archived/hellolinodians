@@ -26,7 +26,7 @@ GEM
     fuubar (2.2.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
-    goodcop (0.0.4)
+    goodcop (0.1.0)
       fuubar (~> 2.2.0)
     http (2.2.2)
       addressable (~> 2.3)
@@ -113,7 +113,7 @@ PLATFORMS
 DEPENDENCIES
   codecov (~> 0.1.1)
   fuubar (~> 2.2.0)
-  goodcop (~> 0.0.1)
+  goodcop (~> 0.1.0)
   indefinite_article (~> 0.2.0)
   linodians (~> 1.1.0)
   rake (~> 12.1.0)
