@@ -11,7 +11,7 @@ group :development do
   gem 'codecov', '~> 0.1.1'
   gem 'fuubar', '~> 2.2.0'
   gem 'goodcop', '~> 0.1.0'
-  gem 'rake', '~> 12.2.1'
+  gem 'rake', '~> 12.3.0'
   gem 'rspec', '~> 3.7.0'
   gem 'rubocop', '~> 0.51.0'
 end
