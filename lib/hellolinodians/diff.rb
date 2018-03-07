@@ -77,7 +77,7 @@ module HelloLinodians
     end
 
     def last_users
-      @last_user ||= @last.map(&:username).to_set
+      @last_users ||= @last.map(&:username).to_set
     end
   end
 end

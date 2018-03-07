@@ -6,7 +6,7 @@ require 'json'
 require 'open-uri'
 require 'uri'
 
-$LOAD_PATH.unshift File.expand_path('../../lib/', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'hellolinodians/diff'
 require 'hellolinodians/alert'
 require 'hellolinodians/cache'
@@ -53,5 +53,5 @@ if options[:checkin]
   DMS_URL = ENV['DEADMANSSNITCH_URL']
   raise('No DMS URL provided') unless DMS_URL
   message = "found+#{current.size}+people"
-  open("#{DMS_URL.strip}?m=#{message}")
+  open("#{DMS_URL.strip}?m=#{message}") # rubocop:disable Security/Open
 end
