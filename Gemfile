@@ -3,7 +3,7 @@ ruby File.read(File.join(path, '.circle-ruby')).chomp
 source 'https://rubygems.org'
 
 gem 'indefinite_article', '~> 0.2.0'
-gem 'linodians', '~> 1.1.0'
+gem 'linodians', '~> 1.1.1'
 gem 'redis', '~> 4.0.0'
 gem 'twitter', '~> 6.2.0'
 
