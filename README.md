@@ -1,7 +1,7 @@
 hellolinodians
 =========
 
-[![Build Status](https://img.shields.io/circleci/project/akerl/hellolinodians/master.svg)](https://circleci.com/gh/akerl/hellolinodians)
+[![Build Status](https://img.shields.io/travis/com/akerl/hellolinodians.svg)](https://travis-ci.com/akerl/hellolinodians)
 [![Code Quality](https://img.shields.io/codacy/089fd438148c4972a4531ca6f0824bae.svg)](https://www.codacy.com/app/akerl/hellolinodians)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
 
