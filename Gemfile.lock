@@ -10,7 +10,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
     buftok (0.2.0)
-    codecov (0.1.10)
+    codecov (0.1.13)
       json
       simplecov
       url
@@ -35,7 +35,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.1.1)
     http_parser.rb (0.6.0)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     indefinite_article (0.2.4)
       activesupport
@@ -50,7 +50,7 @@ GEM
     minitest (5.11.3)
     multipart-post (2.0.0)
     naught (1.1.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
     parser (2.5.1.2)
@@ -66,21 +66,21 @@ GEM
       rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.1)
+    rspec-expectations (3.8.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.59.0)
+    rubocop (0.60.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
       powerpack (~> 0.1)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
+      unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
     simple_oauth (0.3.1)
     simplecov (0.16.1)
@@ -120,11 +120,11 @@ DEPENDENCIES
   rake (~> 12.3.0)
   redis (~> 4.0.0)
   rspec (~> 3.8.0)
-  rubocop (~> 0.59.0)
+  rubocop (~> 0.60.0)
   twitter (~> 6.2.0)
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.5.3p105
 
 BUNDLED WITH
-   1.16.3
+   1.17.1
